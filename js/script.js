@@ -19,36 +19,48 @@
 let counter = 0;
 let plus = document.querySelector(".add");
 let less = document.querySelector(".subtract");
-let currentNumber = document.querySelector("#currentNumber");
-let limit = Number(prompt("Tell me the max you want to count"));
-// let counterr = prompt("Tell me the max you want to count");
+let currentNumber = document.querySelector("#labelTimer");
+let buttonStart = document.querySelector(".start-timer");
 
 plus.addEventListener("click", function () {
-  if (counter < limit) {
-    counter++;
-    currentNumber.textContent = counter;
-    less.style.backgroundColor = "rgb(177, 225, 225)";
-    less.style.borderColor = "blue";
-  } else {
-    alert(`The max you can count is ${limit}`);
-    plus.style.backgroundColor = "rgb(240, 130, 130)";
-    plus.style.borderColor = "red";
-  }
-
-  //   if (counter === limit) {
-  //   }
-  console.log(counter, limit);
+  counter++;
+  currentNumber.textContent =
+    counter >= 10 ? `${counter}:00` : `0${counter}:00`;
 });
 
 less.addEventListener("click", function () {
-  if (counter > 0) {
-    counter--;
-    currentNumber.textContent = counter;
-    plus.style.backgroundColor = "rgb(177, 225, 225)";
-    plus.style.borderColor = "blue";
+  if (counter === 0) {
+    alert("You can't set a timer less than zero!");
   } else {
-    alert("you can't count below zero!");
-    less.style.backgroundColor = "rgb(240, 130, 130)";
-    less.style.borderColor = "red";
+    counter--;
+    currentNumber.textContent =
+      counter >= 10 ? `${counter}:00` : `0${counter}:00`;
   }
+});
+console.log(currentNumber);
+
+buttonStart.addEventListener("click", function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(Math.trunc(time % 60)).padStart(2, 0);
+    // In each call, print the remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When 0 seconds, stop timer and log out user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = `Log in to get started`;
+      containerApp.style.opacity = 0;
+    }
+    // Decrease is
+    time--;
+  };
+
+  // Set time to 5 minutes
+  let time = counter * 60;
+
+  // Call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
 });

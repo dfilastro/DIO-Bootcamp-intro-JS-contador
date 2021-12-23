@@ -10,7 +10,59 @@ body {
   background-color: rgb(199, 198, 198);
 }
 
-button {
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.btn:hover,
+.btn:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.first {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.first:hover {
+  box-shadow: 0 0 40px 40px #e74c3c inset;
+}
+
+.btn2 {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+.subtract {
+  justify-content: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -19,6 +71,7 @@ button {
   font-size: 16pt;
   font-weight: 600;
   text-align: center;
+  margin: 30px;
 }
 
 #counter {
@@ -28,6 +81,66 @@ button {
 #currentNumber {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 0 20px;
-  font-size: 16pt;
+  font-size: 50px;
+}
+
+#labelTimer {
+  display: flex;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(53, 51, 54);
+  color: rgb(15, 219, 160);
+  height: 300px;
+  width: 800px;
+  text-align: center;
+  font-size: 300px;
+  font-family: "digital-7";
+}
+
+.btn-two {
+  color: #fff;
+  transition: all 0.5s;
+  position: relative;
+}
+.btn-two span {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.btn-two::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btn-two::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btn-two:hover::before {
+  transform: rotate(-90deg);
+  background-color: rgba(255, 255, 255, 0);
+}
+.btn-two:hover::after {
+  transform: rotate(0deg);
+  background-color: rgba(255, 255, 255, 0);
 }
