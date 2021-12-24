@@ -21,6 +21,8 @@ let plus = document.querySelector(".add");
 let less = document.querySelector(".subtract");
 let currentNumber = document.querySelector("#labelTimer");
 let buttonStart = document.querySelector(".start-timer");
+let buttonPause = document.querySelector(".pause-timer");
+let buttonContinue = document.querySelector(".continue-timer");
 
 plus.addEventListener("click", function () {
   counter++;
@@ -49,8 +51,7 @@ buttonStart.addEventListener("click", function () {
     // When 0 seconds, stop timer and log out user
     if (time === 0) {
       clearInterval(timer);
-      labelWelcome.textContent = `Log in to get started`;
-      containerApp.style.opacity = 0;
+      alert("Time is up!");
     }
     // Decrease is
     time--;
@@ -58,6 +59,17 @@ buttonStart.addEventListener("click", function () {
 
   // Set time to 5 minutes
   let time = counter * 60;
+
+  buttonPause.addEventListener("click", function () {
+    clearInterval(timer);
+  });
+
+  // BUTTON CONTINUE, STILL NOT WORKING ////////////////////////////////////////////////////////
+  // buttonContinue.addEventListener("click", function () {
+  //   tick();
+  //   const timer = setInterval(tick, 1000);
+  //   return timer;
+  // });
 
   // Call the timer every second
   tick();

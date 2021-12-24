@@ -10,6 +10,13 @@ body {
   background-color: rgb(199, 198, 198);
 }
 
+.buttons-start-stop {
+  display: flex;
+  width: 800px;
+  text-align: center;
+  align-items: space-between;
+}
+
 .btn {
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -20,10 +27,10 @@ body {
   border-radius: 0.6em;
   color: #e74c3c;
   cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  /* display: -webkit-box; */
+  /* display: -webkit-flex; */
+  /* display: -ms-flexbox; */
+  /* display: flex; */
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -37,6 +44,7 @@ body {
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  width: 300px;
 }
 
 .btn:hover,
@@ -197,10 +205,16 @@ body {
   display: flex;
 }
 
-.buttons {
+.buttons-timer {
   display: flex;
   justify-content: space-between;
   width: 800px;
   margin: 100px;
   align-items: center;
+}
+
+.buttons-start-stop {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
 }
